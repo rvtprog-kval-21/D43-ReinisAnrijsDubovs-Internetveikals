@@ -1,0 +1,135 @@
+.laguage-bar {
+    background: #0a2a31;
+    height: 20px;
+}
+
+.navbar {
+    background: #00ac51;
+    margin-left: 20%;
+}
+
+.top-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 130px;
+    position: static;
+    border: none;
+    background: #00ac51;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.Login-button {
+    margin-left: 20px;
+}
+
+.header-contact i {
+    color: #00ac51;
+}
+
+.header-contact {
+    width: 540px;
+}
+
+.header-contact a {
+    display: inline-block;
+    color: #00ac51;
+    border: 3px solid #00ac51;
+    padding: 0.5em 1.5em;
+    background: white;
+    border-radius: 1.5em;
+}
+
+.top-header-contact-email {
+    margin-left: 1em;
+}
+
+.navbar-toggler {
+    border: 2px solid;
+}
+
+.navbar-toggler-icon {
+    color: black;
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+.carousel-inner {
+    height: 600px;
+}
+
+.carousel-image {
+    height: 600px;
+}
+
+.carousel-image-3 {
+    height: 720px;
+}
+
+.list-item a {
+    color: white;
+}
+
+.footer-contacts i {
+    color: #00ac51;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    color: white;
+}
+
+.footer-wrapper {
+    background: #0a2a31;
+    margin-top: 50px;
+}
+
+.footer-row {
+    margin-top: 20px;
+}
+
+.footer-contacts h4 {
+    margin-left: 15px;
+}
+
+.footer-popular-shortcuts h4 {
+    margin-left: 15px;
+}
+
+.footer-privacy-policy h4 {
+    margin-left: 15px;
+}
+
+.company p {
+    margin-bottom: 0px;
+    color: white;
+}
+
+.footer-folow-us img {
+    height: 50px;
+}
+
+.footer-logo {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+}
+
+ 
