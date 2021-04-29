@@ -1,1 +1,1 @@
-# D43-ReinisAnrijsDubovs-Internetveikals
+# D43-ReinisAnrijsDubovs-Rezervācijas mājaslapa
