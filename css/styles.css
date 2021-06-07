@@ -15,7 +15,6 @@
 
 .button {
     width: 130px;
-    position: static;
     border: none;
     background: #00ac51;
     color: white;
@@ -56,10 +55,6 @@
 
 .navbar-toggler-icon {
     color: black;
-}
-
-body {
-    padding-bottom: 20px;
 }
 
 .carousel-inner {
@@ -132,4 +127,54 @@ a.button {
     color: initial;
 }
 
- 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, .34fr));
+    grid-gap: 2em;
+    margin: 20px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 0.1px solid rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%) !important;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%) !important;
+}
+
+.grid-content {
+    padding: 20px;
+}
+
+.grid-item:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+    border: 0.1px solid rgba(0, 0, 0, 0.2);
+    transform: scale(1.07, 1.07);
+}
+
+.grid-img {
+    opacity: 0.85;
+}
+
+.grid-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.grid-item:hover .grid-img {
+    opacity: 1 !important;
+}
+
+.btn-success{
+    margin-top: 20px;
+}
+
+.product_category{
+    margin-top: 10px;
+}
+
+.fileToUplode{
+    margin-top: 10px;
+}

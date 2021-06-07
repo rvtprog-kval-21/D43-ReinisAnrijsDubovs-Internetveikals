@@ -16,6 +16,8 @@ class errors{
     private $sucessfullyAddedProduct;
     private $productDeleted;
     private $productCategoryAdded;
+    private $workshopAdded;
+    private $workshopDeleted;
 
     public function __construct()
     {
@@ -33,6 +35,16 @@ class errors{
         $this->sucessfullyAddedProduct = "Produkts tika veiksmīgi pievienots!";
         $this->productDeleted = "Produkts tika veiksmīgi dzēsts!";
         $this->productCategoryAdded = "Produkta kategorija veiksmīgi pievienota!";
+        $this->workshopAdded = "Darbnīca pievienota!";
+        $this->workshopDeleted = "Darbnīca Veiksmīgi izdzēsta!";
+    }
+
+    public function workshopAdded(){
+        echo '<script>alert("'.$this->workshopAdded.'");</script>';
+    }
+
+    public function WorkshopDeleted(){
+        echo '<script>alert("'.$this->workshopDeleted.'");</script>';
     }
 
     public function falseLogin(){

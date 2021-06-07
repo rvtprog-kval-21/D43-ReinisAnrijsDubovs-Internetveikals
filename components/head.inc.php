@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="LV">
   <head>
-    <meta charset="utf-8">
     <title>Vejstikli</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="reinis\css\bootstrap.min.css">
-    <link rel="stylesheet" href="reinis/css/styles.css">
+    <link rel="stylesheet" href="reinis/css/styles.css?ver=1.0.8">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"> 
     
     <style>

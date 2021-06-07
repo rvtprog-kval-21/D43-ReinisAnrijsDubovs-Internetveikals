@@ -19,7 +19,7 @@ include "components/head.inc.php";
 ?>
 
   <body>
-    <?php include "components/header.inc.php" ?>
+    <?php include "components/adminHeader.inc.php" ?>
     <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -47,9 +47,6 @@ include "components/head.inc.php";
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
   </head>
   <body>
 
@@ -74,6 +71,12 @@ include "components/head.inc.php";
                             <a class="nav-link" href="reinis/Reservations.php">
                             <span data-feather="file-text"></span>
                             Rezervācijas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reinis/addReservation.php">
+                            <span data-feather="file"></span>
+                            Pievienot rezervāciju
                             </a>
                         </li>
                         <li class="nav-item">
@@ -103,15 +106,9 @@ include "components/head.inc.php";
                         </ul>
                         <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="reinis/addWorkShops.php">
+                            <a class="nav-link" href="reinis/addWorkShop.php">
                             <span data-feather="file-text"></span>
                             Pievienot Darbnīcas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reinis/WorkShop.php">
-                            <span data-feather="file-text"></span>
-                            Darbnīcas
                             </a>
                         </li>
                     </ul>

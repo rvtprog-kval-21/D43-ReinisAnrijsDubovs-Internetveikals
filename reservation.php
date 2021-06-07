@@ -1,35 +1,20 @@
 <?php 
 session_start();
-
-require('functions/service.php');
+include "components/header.inc.php";
 require('functions/errors.php');
 
 $service = new service();
 $errors = new errors();
 
-if(!isset($_SESSION['ID'])){
-    header("location:index.php");
-}
-
 $workshops = $service->getWorkshops();
 
-if($workshops == false){
-    $errors->PHPerror();
-    header("location:index.php");
-}
-
 $services = $service->getService();
-
-if($services == false){
-    $errors->PHPerror();
-    header("location:index.php");
-}
 
 include "components/head.inc.php"; 
 ?>
 <main>
     <body>
-        <?php include "components/header.inc.php" ?>
+        <?php  ?>
         <div class="home-main-info">
             <div class="container">
             <form class="register-content animate m-5" method="post">
@@ -92,7 +77,14 @@ include "components/head.inc.php";
 <?php
 
 if(isset($_POST['reserve'])){
-    $result = $service->reserve($_POST['workshops'],$_POST['service'],$_POST['name'],$_POST['surname'],$_POST['phone'],$_POST['date'],$_POST['time']);
+    $id = 0;
+
+    if(isset($_SESSION['ID'])){
+        $id = $_SESSION['ID'];
+    }
+    echo $_POST['time'];
+
+    $result = $service->reserve($_POST['workshops'],$id,$_POST['service'],$_POST['name'],$_POST['surname'],$_POST['phone'],$_POST['date'],$_POST['time']);
     if($result == true){
         $errors->sucessfullyReserved();
     }else{
@@ -101,3 +93,4 @@ if(isset($_POST['reserve'])){
 }
 
 ?>
+

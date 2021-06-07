@@ -41,7 +41,7 @@ if(isset($_GET['setUser'])){
 include "components/head.inc.php"; 
 ?>
 <body>
-        <?php include "components/header.inc.php" ?>
+        <?php include "components/adminHeader.inc.php" ?>
         <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -129,15 +129,9 @@ include "components/head.inc.php";
                             </ul>
                             <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="reinis/addWorkShops.php">
+                                <a class="nav-link" href="reinis/addWorkShop.php">
                                 <span data-feather="file-text"></span>
                                 Pievienot Darbnīcas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="reinis/WorkShop.php">
-                                <span data-feather="file-text"></span>
-                                Darbnīcas
                                 </a>
                             </li>
                         </ul>
@@ -147,7 +141,6 @@ include "components/head.inc.php";
                     <div class="home-main-info">
                         <div class="container">
                             <h1>Administrātora panelis</h1>  
-                            <button class="btn btn-success"><a href="reinis/users.php">Lietotāji</a></button> 
                             <h2>Lietotāji</h2> 
                             <table class="table">
                                 <thead>
@@ -158,7 +151,6 @@ include "components/head.inc.php";
                                         <th scope="col">NAME</th>
                                         <th scope="col">SURNAME</th>
                                         <th scope="col">EMAIL</th>
-                                        <th scope="col">PASSWORD</th>
                                         <th scope="col">CREATED</th>
                                         <th scope="col">SET ADMIN</th>
                                         <th scope="col">SET NEW PASSWORD</th>
@@ -166,7 +158,7 @@ include "components/head.inc.php";
                                 </thead>
                                 <tbody>
                                 <?php 
-                                $val = 8; 
+                                $val = 7; 
                                 for ($x = 0; $x < count($users); $x+=$val) {
                                     echo "<tr>";
                                     for ($i = $x; $i < $x + $val; $i++) {

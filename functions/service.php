@@ -57,7 +57,7 @@ class service
         }
     }
 
-    public function reserve ($workshop,$service,$name,$surname,$phone,$date,$time){
+    public function reserve ($workshop,$ID,$service,$name,$surname,$phone,$date,$time){
         $hasW = $this->validation->valuesExists($workshop);
         $hasSE = $this->validation->valuesExists($service);
         $hasP = $this->validation->valuesExists($phone);
@@ -67,7 +67,7 @@ class service
         $hasT = $this->validation->valuesExists($time);
 
         if($hasW && $hasSE && $hasP && $hasS && $hasN && $hasD && $hasT){
-            $result = $this->db->reserve($workshop,$service,$name,$surname,$phone,$date,$time);
+            $result = $this->db->reserve($workshop,$ID,$service,$name,$surname,$phone,$date,$time);
             if($result == true){
                 return true;
             }else{
@@ -97,11 +97,45 @@ class service
         }
     }
 
+    public function editProduct ($id, $name,$category,$description,$brand){
+        $hasID = $this->validation->valuesExists($id);
+        $hasN = $this->validation->valuesExists($name);
+        $hasC = $this->validation->valuesExists($category);
+        $hasD = $this->validation->valuesExists($description);
+        $hasB = $this->validation->valuesExists($brand);
+
+        if($id > 0){
+            $result = $this->db->editProduct($id, $name,$category,$description,$brand);
+            if($result == true){
+                return 1;
+            }else{
+                return 2;
+            }
+        }else{
+            return 3;
+        }
+    }
+
     public function addProductCategory ($name){
         $hasN = $this->validation->valuesExists($name);
 
         if($hasN){
             $result = $this->db->addProductCategory($name);
+            if($result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function addWorkshop($address){
+        $hasA = $this->validation->valuesExists($address);
+
+        if($hasA){
+            $result = $this->db->addWorkshop($address);
             if($result == true){
                 return true;
             }else{
@@ -119,6 +153,14 @@ class service
     public function changeUserPassword($id, $newpass){
         if($this->validation->valuesExists($newpass) && $this->validation->valuesExists($id)){
             return $this->db->changeUserPassword($id, $newpass);
+        }else{
+            return false;
+        }
+    }
+
+    public function changeWorkshopAddress($id, $newaddress){
+        if($this->validation->valuesExists($id) && $this->validation->valuesExists($newaddress)){
+            return $this->db->changeWorkshopAddress($id, $newaddress);
         }else{
             return false;
         }
@@ -170,6 +212,26 @@ class service
 
     public function getAllReservations(){
         return $this->db->getAllReservations();
+    }
+
+    public function getAllWorkshops(){
+        return $this->db->getAllWorkshops();
+    }
+
+    public function deleteWorkshop($id){
+        return $this->db->deleteWorkshop($id);
+    }
+
+    public function getAllProductsForGrid(){
+        return $this->db->getAllProductsForGrid();
+    }
+
+    public function getAllProductsForGridByCat($param){
+        return $this->db->getAllProductsForGridByCat($param);
+    }
+
+    public function getProduct($id){
+        return $this->db->getProduct($id);
     }
 
 }

@@ -30,7 +30,7 @@ if(isset($_GET['deletereservation'])){
 include "components/head.inc.php"; 
 ?>
 <body>
-        <?php include "components/header.inc.php" ?>
+        <?php include "components/adminHeader.inc.php" ?>
         <html lang="en">
     <head>
       <meta charset="utf-8">
@@ -91,6 +91,12 @@ include "components/head.inc.php";
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a class="nav-link" href="reinis/addReservation.php">
+                      <span data-feather="file"></span>
+                      Pievienot rezervāciju
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link" href="reinis/addProduct.php">
                       <span data-feather="shopping-cart"></span>
                       Pievienot produktu
@@ -117,15 +123,9 @@ include "components/head.inc.php";
                   </ul>
                   <ul class="nav flex-column mb-2">
                   <li class="nav-item">
-                      <a class="nav-link" href="reinis/addWorkShops.php">
+                      <a class="nav-link" href="reinis/addWorkShop.php">
                       <span data-feather="file-text"></span>
                       Pievienot Darbnīcas
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="reinis/WorkShop.php">
-                      <span data-feather="file-text"></span>
-                      Darbnīcas
                       </a>
                   </li>
                 </ul>
@@ -135,8 +135,6 @@ include "components/head.inc.php";
             <div class="home-main-info">
                 <div class="container">
                   <h1>Administrātora panelis</h1>  
-                  <button class="btn btn-success"><a href="reinis/users.php">Lietotāji</a></button> 
-                  <button class="btn btn-success"><a href="reinis/reservation.php">Pievienot rezervāciju</a></button> 
                   <h2>Rezervācijas</h2> 
                   <table class="table">
                     <thead>

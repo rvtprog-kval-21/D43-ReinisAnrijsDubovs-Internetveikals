@@ -16,6 +16,17 @@ if($isAdmin == false){
 }
 
 $categories = $service->getProductCategories();
+$workshops = $service->getAllWorkshops();
+
+if(isset($_GET['deleteproduct'])){
+    $result = $service->deleteWorkshop($_GET['deleteproduct']);
+    if($result){
+        $errors->WorkshopDeleted();
+    }else{
+        $errors->tryAgain();
+    }
+    echo '<script>window.location.href="/reinis/addWorkShop.php"</script>';
+}
 
 if($categories == false){
     $errors->PHPerror();
@@ -127,16 +138,46 @@ include "components/head.inc.php";
             <div class="home-main-info">
                 <div class="container">
                     <h1>Administrātora panelis</h1>  
-                    <h2>Produkta kategorijas pievienosana</h2>
-                    <form method="POST" enctype="multipart/form-data">
+                    <h2>Darbnīcas pievienošana</h2>
+                    <form method="POST">
                         <div class="form-group">
-                            <label class="form-label" for="product_category_name"><b>Produkta kategorijas nosaukums</b></label>
-                            <input class="form-control" type="text" name="product_category_name" value="" required>
+                            <label class="form-label" for="address"><b>Darbnīcas adrese</b></label>
+                            <input class="form-control" type="text" name="address" value="" required>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" type="submit" name="add_product_category">Pievienot kategorju</button>
+                            <button class="btn btn-success" type="submit" name="add_address">Pievienot Darbnīcu</button>
                         </div>
                     </form>
+                    <h2>Darbnīcas</h2> 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Darbnicas adrese</th>
+                                <th scope="col">Mainīt adresi</th>
+                                <th scope="col">Dzēst adresi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                        $val = 2; 
+                        for ($x = 0; $x < count($workshops); $x+=$val) {
+                            echo "<tr>";
+                            for ($i = $x; $i < $x + $val; $i++) {
+                                if($i == $x){
+                                    echo "<th scope='row'>".$workshops[$x]."</th>";
+                                }else{
+                                    echo "<td>".$workshops[$i]."</td>";
+                                }
+                            }
+                            
+                            echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeaddress" data-bs-whatever="'.$workshops[$x].'">Mainit adresi</button></td>';
+                            echo "<td><button class='btn btn-danger'><a class='text-white text-decoration-none' href='reinis/addWorkShop.php?deleteproduct=".$workshops[$x]."'>Dzēst adresi</a></button></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -145,14 +186,39 @@ include "components/head.inc.php";
     <?php include "components/footer.inc.php" ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="modal fade" id="changeaddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Set new address</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <div class="mb-3">
+            <input type="text" class="workshop-id d-none" >
+            <label for="newaddress" class="col-form-label">New Address</label>
+            <input class="form-control" id="newaddress" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="change-address"  data-bs-dismiss="modal" class="btn btn-primary">Change address</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
 <?php
 
-if(isset($_POST["add_product_category"])) {
-    if($service->addProductCategory($_POST["product_category_name"])){
-        $errors->productCategoryAdded();
+if(isset($_POST["add_address"])) {
+    if($service->addWorkshop($_POST["address"])){
+        $errors->workshopAdded();
     }else{
         $errors->tryAgain();
     }
@@ -160,4 +226,49 @@ if(isset($_POST["add_product_category"])) {
 
 }
 
+if(isset($_POST['newaddress'])){
+    $service->changeWorkshopAddress($_POST['id'], $_POST['newaddress']);
+}
+
 ?>
+<script>
+
+var exampleModal = document.getElementById('changeaddress')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  var button = event.relatedTarget
+  var id = button.getAttribute('data-bs-whatever')
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body .workshop-id')
+
+  modalBodyInput.value = id
+})
+
+$(document).ready(function(){
+
+$('#change-address').click(function(){
+  
+  var id = $('.workshop-id').val();
+  var newaddress = $('#newaddress').val();
+  $.ajax({
+    type: 'POST',
+    url: 'reinis/workshops.php',
+    dataType: "json",
+    data: {
+        id: id,
+        newaddress: newaddress,
+    },
+    complete: function(jqXHR) {
+       if(jqXHR.readyState === 4) {
+            alert("Darbnīcas adrese tika veiksmīgi nomainīta!")
+            setInterval('refreshPage()', 200);
+        }   
+    }   
+ });
+});
+});
+
+function refreshPage() {
+    location.reload(true);
+}
+
+</script>

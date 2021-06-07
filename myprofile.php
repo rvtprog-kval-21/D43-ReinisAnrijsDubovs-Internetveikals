@@ -1,9 +1,9 @@
 <?php 
 session_start();
 
-require('functions/service.php');
 require('functions/errors.php');
-
+include "components/head.inc.php"; 
+include "components/header.inc.php";
 $service = new service();
 $errors = new errors();
 
@@ -11,11 +11,11 @@ if(!isset($_SESSION['ID'])){
     header("location:index.php");
 }
 
-include "components/head.inc.php"; 
+
 ?>
 <main>
     <body>
-        <?php include "components/header.inc.php" ?>
+        <?php  ?>
         <div class="home-main-info">
             <div class="container">
                 <h1>Mans profils</h1>  

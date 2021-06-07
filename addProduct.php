@@ -26,7 +26,7 @@ include "components/head.inc.php";
 ?>
 
 <body>
-        <?php include "components/header.inc.php" ?>
+        <?php include "components/adminHeader.inc.php" ?>
         <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -59,9 +59,6 @@ include "components/head.inc.php";
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
   </head>
     <div class="container-fluid">
         <div class="row">
@@ -84,6 +81,12 @@ include "components/head.inc.php";
                             <a class="nav-link" href="reinis/Reservations.php">
                             <span data-feather="file-text"></span>
                             Rezervācijas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reinis/addReservation.php">
+                            <span data-feather="file"></span>
+                            Pievienot rezervāciju
                             </a>
                         </li>
                         <li class="nav-item">
@@ -113,15 +116,9 @@ include "components/head.inc.php";
                         </ul>
                         <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="reinis/addWorkShops.php">
+                            <a class="nav-link" href="reinis/addWorkShop.php">
                             <span data-feather="file-text"></span>
                             Pievienot Darbnīcas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reinis/WorkShop.php">
-                            <span data-feather="file-text"></span>
-                            Darbnīcas
                             </a>
                         </li>
                     </ul>
@@ -137,7 +134,7 @@ include "components/head.inc.php";
                                 <label class="form-label" for="product_name"><b>Produkta nosaukums</b></label>
                                 <input class="form-control" type="text" name="product_name" value="" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group product_category">
                                 <label class="form-label" for="product_category"><b>Produkta kategorija</b></label>
                                 <select name="product_category" id="product_category">
                                     <?php
@@ -155,7 +152,7 @@ include "components/head.inc.php";
                                 <label class="form-label" for="product_brand"><b>Produkta brends</b></label>
                                 <input class="form-control" type="text" name="product_brand" value="" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group fileToUplode">
                                 <label class="form-label" for="product_name"><b>Bilde</b></label>
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                             </div>
@@ -178,7 +175,7 @@ include "components/head.inc.php";
 <?php
 
 if(isset($_POST["add_product"]) && !empty($_FILES['fileToUpload'])) {
-    $target_dir = "D:/Programs/wamp64/www/reinis/uploads/";
+    $target_dir = "C:/wamp64/www/reinis/uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
