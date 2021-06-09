@@ -21,10 +21,10 @@
                     <h4>Privatuma politika</h4>
                     <div class="footer-info">
                         <ul class="list">
-                            <li class="list-item"><a href="reinis/privatuma-politika.php">Privātuma politika</a></li>
-                            <li class="list-item"><a href="reinis/sikdatnu-izmantosanas-politika.php">Sīkdatņu izmantošanas politika</a></li>
+                            <li class="list-item"><a href="reinis/privacy-Policy.php">Privātuma politika</a></li>
+                            <li class="list-item"><a href="reinis/cookies.php">Sīkdatņu izmantošanas politika</a></li>
                             <li class="list-item"><a href="reinis/drosiba.php">Drošība</a></li>
-                            <li class="list-item"><a href="reinis/garantijas-nosacijumi.php">Garantijas nosacījumi</a></li>  
+                            <li class="list-item"><a href="reinis/warranty.php">Garantijas nosacījumi</a></li>  
                         </ul>
                     </div>
                 </div>
@@ -33,11 +33,11 @@
                     <div class="footer-info">
                         <ul class="list">
                             <li class="list-item"><a href="reinis/pakalpojumi.php">Pakalpojumi</a></li>
-                            <li class="list-item"><a href="reinis/rezervacija.php">Rezervacija</a></li>
-                            <li class="list-item"><a href="reinis/produkti.php">Produkti</a></li>
+                            <li class="list-item"><a href="reinis/reservation.php">Rezervacija</a></li>
+                            <li class="list-item"><a href="reinis/products-grid.php">Produkti</a></li>
                             <li class="list-item"><a href="reinis/par-mums.php">Par mums</a></li>
                             <li class="list-item"><a href="reinis/vakances.php">Vakances</a></li>
-                            <li class="list-item"><a href="reinis/kontakti.php">Kontakti</a></li>
+                            <li class="list-item"><a href="reinis/contacts.php">Kontakti</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,8 +55,7 @@
             </div>
         </div>
         <div class="container company">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p>&copy; 2017-2020 Company, Inc. &middot; <a href="reinis/privacy-Policy.php">Privacy</a></p>
         </div>     
     </footer>
 

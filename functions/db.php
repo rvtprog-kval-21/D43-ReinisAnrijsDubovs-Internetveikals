@@ -120,6 +120,23 @@ class db {
         return $categ;
     }
 
+    public function getAllCategorys(){
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        mysqli_set_charset($conn,"utf8mb4");
+        $categ = array();
+        $sql = "SELECT id, KategorijasVards FROM kategorija";
+        $result = $conn->query($sql);
+        if ($result) {
+            while($row = $result->fetch_assoc()) {
+                array_push($categ, strval($row['id']), $row['KategorijasVards']);
+            }
+        } else {
+            return false;
+        }
+        $conn->close();
+        return $categ;
+    }
+
     public function getAllUsers(){
         $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         mysqli_set_charset($conn,"utf8mb4");
@@ -243,6 +260,26 @@ class db {
         return $reservations;
     }
 
+    public function getAllUsersReservations(){
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        mysqli_set_charset($conn,"utf8mb4");
+        $sql = "SELECT r.*, d.Darbnicas_Adrese, p.Pakalpojums_Nosaukums, DATE_FORMAT(r.Datums, '%Y-%m-%d') AS date FROM rezervacija AS r LEFT JOIN darbnicas as d ON d.ID=r.DarbnicasID JOIN pakalpojums as p ON p.ID=r.PakalpojumaID WHERE r.LietotajuID=".$_SESSION["ID"]."";
+        $reservations = array();
+        $result = $conn->query($sql);
+        $id = 0;
+
+        if ($result) {
+            while($row = $result->fetch_assoc()) {
+                array_push($reservations, strval($row['ID']), $row['Darbnicas_Adrese'], $row['Pakalpojums_Nosaukums'],$row['Vards'],$row['Uzvards'],$row['TelefonaNr'],$row['Datums'],$row['Laiks']);
+            }
+        } else {
+            return false;
+        }
+        $conn->close();
+        return $reservations;
+    }
+
+    
     public function reserve($workshop,$ID,$service,$name,$surname,$phone,$date,$time){
         $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         $sql = "";
@@ -305,6 +342,17 @@ class db {
             $conn->close();
             return false;
         }
+    }
+
+    public function changeCategory($id, $newCategory){
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        mysqli_set_charset($conn,"utf8mb4");
+        $sql = "UPDATE kategorija SET KategorijasVards='".$newCategory."' WHERE id=".$id."";
+        $result = $conn->query($sql);
+        if ($result) {
+            return true;
+        } 
+        return false;
     }
 
     public function addWorkshop($address){
@@ -402,6 +450,16 @@ class db {
     public function deleteWorkshop($id){
         $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         $sql = "DELETE FROM darbnicas WHERE ID=".$id."";
+        $result = $conn->query($sql);
+        if ($result) {
+            return true;
+        } 
+        return false;
+    }
+
+    public function deleteCategory($id){
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        $sql = "DELETE FROM kategorija WHERE ID=".$id."";
         $result = $conn->query($sql);
         if ($result) {
             return true;

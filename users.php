@@ -120,12 +120,6 @@ include "components/head.inc.php";
                                 pievienot kategoriju
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="reinis/category.php">
-                                <span data-feather="layers"></span>
-                                kategorijas
-                                </a>
-                            </li>
                             </ul>
                             <ul class="nav flex-column mb-2">
                             <li class="nav-item">
@@ -146,14 +140,14 @@ include "components/head.inc.php";
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">USERNAME</th>
-                                        <th scope="col">IS ADMIN</th>
-                                        <th scope="col">NAME</th>
-                                        <th scope="col">SURNAME</th>
-                                        <th scope="col">EMAIL</th>
-                                        <th scope="col">CREATED</th>
-                                        <th scope="col">SET ADMIN</th>
-                                        <th scope="col">SET NEW PASSWORD</th>
+                                        <th scope="col">LIETOTĀJVĀRDS</th>
+                                        <th scope="col">IR ADMINS</th>
+                                        <th scope="col">VĀRDS</th>
+                                        <th scope="col">UZVĀRDS</th>
+                                        <th scope="col">EPASTS</th>
+                                        <th scope="col">IZVEIDOTS</th>
+                                        <th scope="col">UZSTĀDĪT KĀ ADMINU</th>
+                                        <th scope="col">NOMAINĪT PAROLI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -169,11 +163,11 @@ include "components/head.inc.php";
                                         }
                                     }
                                     if($users[$x+2] == 0){
-                                        echo "<td><a href='reinis/users.php?setAdmin=".$users[$x]."'>Set as Admin</a></td>";
+                                        echo "<td><a href='reinis/users.php?setAdmin=".$users[$x]."'>Uzstādīt kā adminu</a></td>";
                                     }else{
-                                        echo "<td><a href='reinis/users.php?setUser=".$users[$x]."'>Set as User</a></td>";
+                                        echo "<td><a href='reinis/users.php?setUser=".$users[$x]."'>Uzstādīt kā lietotāju</a></td>";
                                     }
-                                    echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changepass" data-bs-whatever="'.$users[$x].'">Set new password</button></td>';
+                                    echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changepass" data-bs-whatever="'.$users[$x].'">Nomainīt paroli</button></td>';
                                     echo "</tr>";
                                 }
                                 ?>

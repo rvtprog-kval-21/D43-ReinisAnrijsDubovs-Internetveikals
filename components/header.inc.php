@@ -67,7 +67,7 @@ if(isset($_SESSION['ID'])){
                         <a class="nav-link text-white active" aria-current="page" href="http://localhost/reinis/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="reinis/pages/pakalpojumiShow.php">Pakalpojumi</a>
+                        <a class="nav-link text-white" href="reinis/pakalpojumiShow.php">Pakalpojumi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="reinis/products-grid.php">Produkti</a>
@@ -76,13 +76,13 @@ if(isset($_SESSION['ID'])){
                         <a class="nav-link text-white" href="reinis/reservation.php">Rezervacija</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="reinis/pages/par-mums.php">Par mums</a>
+                        <a class="nav-link text-white" href="reinis/par-mums.php">Par mums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="reinis/pages/vakances.php">Vakances</a>
+                        <a class="nav-link text-white" href="reinis/vakances.php">Vakances</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="reinis/pages/contacts.php">Kontakti</a>
+                        <a class="nav-link text-white" href="reinis/contacts.php">Kontakti</a>
                     </li>
                 </ul>
             </div>

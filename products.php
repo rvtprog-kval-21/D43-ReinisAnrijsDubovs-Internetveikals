@@ -114,12 +114,6 @@ include "components/head.inc.php";
                             pievienot kategoriju
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reinis/category.php">
-                            <span data-feather="layers"></span>
-                            kategorijas
-                            </a>
-                        </li>
                         </ul>
                         <ul class="nav flex-column mb-2">
                         <li class="nav-item">
@@ -145,8 +139,8 @@ include "components/head.inc.php";
                                     <th scope="col">Produkta apraksts</th>
                                     <th scope="col">Produkta brands</th>
                                     <th scope="col">Produkta bilde</th>
-                                    <th scope="col">Dzēst</th>
                                     <th scope="col">Labot</th>
+                                    <th scope="col">Dzēst</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -161,9 +155,9 @@ include "components/head.inc.php";
                                         echo "<td>".$products[$i]."</td>";
                                     }
                                 }
-                                echo "<td><button class='btn btn-danger'><a class='text-white text-decoration-none' href='reinis/products.php?deleteproduct=".$products[$x]."'>Dzēst produktu</a></button></td>";
                                 echo "<td><button class='btn btn-primary'><a class='text-white text-decoration-none' href='reinis/editproduct.php?id=".$products[$x]."'>Labot produktu</a></button></td>";
-
+                                echo "<td><button class='btn btn-danger'><a class='text-white text-decoration-none' href='reinis/products.php?deleteproduct=".$products[$x]."'>Dzēst produktu</a></button></td>";
+                                
                                 echo "</tr>";
                             }
                             ?>

@@ -166,6 +166,14 @@ class service
         }
     }
 
+    public function changeCategory($id, $newCategory){
+        if($this->validation->valuesExists($id) && $this->validation->valuesExists($newCategory)){
+            return $this->db->changeCategory($id, $newCategory);
+        }else{
+            return false;
+        }
+    }
+
     public function changeReservationDate($id, $date){
         return $this->db->changeReservationDate($id, $date);
     }
@@ -194,6 +202,10 @@ class service
         return $this->db->getProductCategories();
     }
 
+    public function getAllCategorys(){
+        return $this->db->getAllCategorys();
+    }
+
     public function getService(){
         return $this->db->getService();
     }
@@ -214,12 +226,20 @@ class service
         return $this->db->getAllReservations();
     }
 
+    public function getAllUsersReservations(){
+        return $this->db->getAllUsersReservations();
+    }
+
     public function getAllWorkshops(){
         return $this->db->getAllWorkshops();
     }
 
     public function deleteWorkshop($id){
         return $this->db->deleteWorkshop($id);
+    }
+
+    public function deleteCategory($id){
+        return $this->db->deleteCategory($id);
     }
 
     public function getAllProductsForGrid(){

@@ -16,6 +16,17 @@ if($isAdmin == false){
 }
 
 $categories = $service->getProductCategories();
+$categorysdb = $service->getAllCategorys();
+
+if(isset($_GET['deleteproduct'])){
+    $result = $service->deleteCategory($_GET['deleteproduct']);
+    if($result){
+        $errors->CategoryDeleted();
+    }else{
+        $errors->tryAgain();
+    }
+    echo '<script>window.location.href="/reinis/addCategory.php"</script>';
+}
 
 if($categories == false){
     $errors->PHPerror();
@@ -106,12 +117,6 @@ include "components/head.inc.php";
                         pievienot kategoriju
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reinis/category.php">
-                        <span data-feather="layers"></span>
-                        kategorijas
-                        </a>
-                    </li>
                     </ul>
                     <ul class="nav flex-column mb-2">
                     <li class="nav-item">
@@ -138,6 +143,38 @@ include "components/head.inc.php";
                         </div>
                     </form>
                 </div>
+                <div class="container mt-4">
+                <h2>Kategorijas</h2> 
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Kategorija</th>
+                                <th scope="col">Mainīt kategoriju</th>
+                                <th scope="col">Dzēst kategoriju</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                        $val = 2; 
+                        for ($x = 0; $x < count($categorysdb); $x+=$val) {
+                            echo "<tr>";
+                            for ($i = $x; $i < $x + $val; $i++) {
+                                if($i == $x){
+                                    echo "<th scope='row'>".$categorysdb[$x]."</th>";
+                                }else{
+                                    echo "<td>".$categorysdb[$i]."</td>";
+                                }
+                            }
+                            
+                            echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeCategory" data-bs-whatever="'.$categorysdb[$x].'">Mainit kategoriju</button></td>';
+                            echo "<td><button class='btn btn-danger'><a class='text-white text-decoration-none' href='reinis/addCategory.php?deleteproduct=".$categorysdb[$x]."'>Dzēst kategoriju</a></button></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -145,7 +182,31 @@ include "components/head.inc.php";
     <?php include "components/footer.inc.php" ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="modal fade" id="changeCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ievadiet jaunu kategoriju</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          <div class="mb-3">
+            <input type="text" class="category-id d-none" >
+            <label for="newCategory" class="col-form-label">Jauna kategorija</label>
+            <input class="form-control" id="newCategory" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        <button type="button" id="change-category"  data-bs-dismiss="modal" class="btn btn-primary">Mainīt kategoriju</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 <?php
@@ -160,4 +221,50 @@ if(isset($_POST["add_product_category"])) {
 
 }
 
+if(isset($_POST['newCategory'])){
+    $service->changeCategory($_POST['id'], $_POST['newCategory']);
+}
+
 ?>
+
+<script>
+
+var exampleModal = document.getElementById('changeCategory')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  var button = event.relatedTarget
+  var id = button.getAttribute('data-bs-whatever')
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body .category-id')
+
+  modalBodyInput.value = id
+})
+
+$(document).ready(function(){
+
+$('#change-category').click(function(){
+  
+  var id = $('.category-id').val();
+  var newaddress = $('#newCategory').val();
+  $.ajax({
+    type: 'POST',
+    url: 'reinis/addCategory.php',
+    dataType: "json",
+    data: {
+        id: id,
+        newCategory: newCategory,
+    },
+    complete: function(jqXHR) {
+       if(jqXHR.readyState === 4) {
+            alert("Kategorijas nosaukums tika veiksmīgi nomainīta!")
+            setInterval('refreshPage()', 200);
+        }   
+    }   
+ });
+});
+});
+
+function refreshPage() {
+    location.reload(true);
+}
+
+</script>

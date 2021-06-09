@@ -108,12 +108,6 @@ include "components/head.inc.php";
                             pievienot kategoriju
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reinis/category.php">
-                            <span data-feather="layers"></span>
-                            kategorijas
-                            </a>
-                        </li>
                         </ul>
                         <ul class="nav flex-column mb-2">
                         <li class="nav-item">

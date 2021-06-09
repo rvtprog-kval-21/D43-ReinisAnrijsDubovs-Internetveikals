@@ -117,12 +117,6 @@ include "components/head.inc.php";
                         pievienot kategoriju
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="reinis/category.php">
-                        <span data-feather="layers"></span>
-                        kategorijas
-                        </a>
-                    </li>
                     </ul>
                     <ul class="nav flex-column mb-2">
                     <li class="nav-item">
@@ -148,6 +142,8 @@ include "components/head.inc.php";
                             <button class="btn btn-success" type="submit" name="add_address">Pievienot Darbnīcu</button>
                         </div>
                     </form>
+                </div>
+                <div class="container mt-4">
                     <h2>Darbnīcas</h2> 
                     <table class="table">
                         <thead>
@@ -191,21 +187,21 @@ include "components/head.inc.php";
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Set new address</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ievadiet jauno adresi</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST">
           <div class="mb-3">
             <input type="text" class="workshop-id d-none" >
-            <label for="newaddress" class="col-form-label">New Address</label>
+            <label for="newaddress" class="col-form-label">Jauna adrese</label>
             <input class="form-control" id="newaddress" />
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="change-address"  data-bs-dismiss="modal" class="btn btn-primary">Change address</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        <button type="button" id="change-address"  data-bs-dismiss="modal" class="btn btn-primary">Mainīt adresi</button>
       </div>
     </div>
   </div>
@@ -251,7 +247,7 @@ $('#change-address').click(function(){
   var newaddress = $('#newaddress').val();
   $.ajax({
     type: 'POST',
-    url: 'reinis/workshops.php',
+    url: 'reinis/addWorkShop.php',
     dataType: "json",
     data: {
         id: id,

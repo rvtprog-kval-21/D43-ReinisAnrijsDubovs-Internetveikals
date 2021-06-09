@@ -63,9 +63,6 @@ include "components/head.inc.php";
         }
       </style>
 
-      
-      <!-- Custom styles for this template -->
-      <link href="dashboard.css" rel="stylesheet">
     </head>
     <div class="container-fluid">
         <div class="row">
@@ -114,12 +111,6 @@ include "components/head.inc.php";
                       pievienot kategoriju
                       </a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="reinis/category.php">
-                      <span data-feather="layers"></span>
-                      kategorijas
-                      </a>
-                  </li>
                   </ul>
                   <ul class="nav flex-column mb-2">
                   <li class="nav-item">
@@ -149,7 +140,7 @@ include "components/head.inc.php";
                             <th scope="col">Laiks</th>
                             <th scope="col">Mainīt datumu</th>
                             <th scope="col">Mainīt laiku</th>
-                            <th scope="col">Dzēst</th>
+                            <th scope="col">Atcelt</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,7 +157,7 @@ include "components/head.inc.php";
                         }
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changedate" data-bs-whatever="'.$reservations[$x].'">Mainīt datumu</button></td>';
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changetime" data-bs-whatever="'.$reservations[$x].'">Mainīt Laiku</button></td>';
-                        echo '<td><a href="reinis/reservations.php?deletereservation='.$reservations[$x].'">Dzēst</a></td>';
+                        echo '<td><a href="reinis/reservations.php?deletereservation='.$reservations[$x].'">Atcelt</a></td>';
                         echo "</tr>";
                     }
                     ?>
@@ -187,7 +178,7 @@ include "components/head.inc.php";
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Set new date</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ievadiet jauno datumu</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -211,7 +202,7 @@ include "components/head.inc.php";
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Set new time</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ievadiet jauno laiku</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
