@@ -24,12 +24,12 @@ Izmantotās tehnoloģijas
 Projektā tiek izmantots:
 
 Bootsrap 5 beta 3
-HTML
-CSS
-PHP
-phpMyAdmin
-MySQL
-Visual Studios Code
+•	HTML
+•	CSS
+•	PHP
+•	phpMyAdmin
+•	MySQL
+•	Visual Studios Code
 
 Izmantotie avoti
 •	Bootstrap ietvara dokumentācija - https://getbootstrap.com/docs/5.0/getting-started/download/
