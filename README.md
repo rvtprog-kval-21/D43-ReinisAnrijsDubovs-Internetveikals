@@ -33,6 +33,7 @@ Bootsrap 5 beta 3
 
 Izmantotie avoti
 •	Bootstrap ietvara dokumentācija - https://getbootstrap.com/docs/5.0/getting-started/download/
+•	Bootstrap examples - https://getbootstrap.com/docs/5.0/examples/
 •	Wampserver 64 forums un downlods - https://www.wampserver.com/en/
 •	PHP funkciju dokumentācija -  http://php.net/
 •	Font Awesome vektorgrafikas ikonu dokumentācija. - https://fontawesome.com/
