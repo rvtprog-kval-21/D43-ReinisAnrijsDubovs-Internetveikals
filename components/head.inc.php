@@ -5,7 +5,7 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="reinis\css\bootstrap.min.css">
-    <link rel="stylesheet" href="reinis/css/styles.css?ver=1.0.8">
+    <link rel="stylesheet" href="reinis/css/styles.css?ver=1.1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"> 
     
     <style>

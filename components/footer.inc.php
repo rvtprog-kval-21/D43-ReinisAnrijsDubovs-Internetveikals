@@ -23,7 +23,6 @@
                         <ul class="list">
                             <li class="list-item"><a href="reinis/privacy-Policy.php">Privātuma politika</a></li>
                             <li class="list-item"><a href="reinis/cookies.php">Sīkdatņu izmantošanas politika</a></li>
-                            <li class="list-item"><a href="reinis/drosiba.php">Drošība</a></li>
                             <li class="list-item"><a href="reinis/warranty.php">Garantijas nosacījumi</a></li>  
                         </ul>
                     </div>
