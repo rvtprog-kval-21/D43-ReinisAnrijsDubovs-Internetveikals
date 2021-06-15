@@ -39,6 +39,7 @@ class errors{
         $this->workshopAdded = "Darbnīca pievienota!";
         $this->workshopDeleted = "Darbnīca veiksmīgi izdzēsta!";
         $this->CategoryDeleted = "Kategorija veiksmīgi izdzēsta!";
+        $this->reservationDeleted = "Rezervācija veiksmīgi atcelta!!";
     }
 
     public function workshopAdded(){
