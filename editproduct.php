@@ -185,7 +185,7 @@ if(isset($_POST["edit_product"])) {
     if($val == true){
         $errors->sucessfullyAddedProduct();
         echo("<meta http-equiv='refresh' content='1'>");
-        $errors->tryAgain();
+        echo '<script>window.location.href="/reinis/products.php"</script>';
     }
 }
 

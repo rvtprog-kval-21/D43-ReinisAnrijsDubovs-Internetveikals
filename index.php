@@ -16,7 +16,7 @@ include "components/head.inc.php";
         <div class="carousel-item active">
           <img src="reinis\img\sakuma-slider-kontakti-1024x683.jpg" class="carousel-image d-block w-100" alt="Kontakti-slider">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>First slide label</h5>
+            <h5>Pirmais slids</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>

@@ -42,7 +42,7 @@ include "components/head.inc.php";
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="name"><b>Vārds</b></label>
-                        <input type="text" class="form-control" name="name" pattern="[A-Za-z]{1,30}" values="" required>
+                        <input type="text" class="form-control" name="name" values="" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="surname"><b>Uzvārds</b></label>

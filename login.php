@@ -19,11 +19,11 @@
             <h2>Ienākt</h2>
             <div class="form-group">
                 <label class="form-label" for="uname"><b>Lietotāj vārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+                <input type="text" class="form-control" placeholder="Ievadiet lietotājvārdu" name="uname" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="psw"><b>Parole</b></label>
-                <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+                <input class="form-control" type="password" placeholder="Ievadiet paroli" name="psw" required>
             </div>
             <div class="form-group">
                 <button class="btn btn-success" type="submit" name="login">Ienākt</button>
@@ -35,27 +35,27 @@
             <h2>Reģistrēšanās</h2>
             <div class="form-group">
                 <label class="form-label" for="runame"><b>Lietotāj vārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Username" name="runame" value="<?php if(isset($_POST['runame'])){echo $_POST['runame'];}?>" required>
+                <input type="text" class="form-control" placeholder="Ievadiet lietotājvārdu" name="runame" value="<?php if(isset($_POST['runame'])){echo $_POST['runame'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="email"><b>E-pasts</b></label>
-                <input type="email" class="form-control" placeholder="Enter E-Mail" name="remail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php if(isset($_POST['remail'])){echo $_POST['remail'];}?>" required>
+                <input type="email" class="form-control" placeholder="Ievadiet epastu" name="remail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php if(isset($_POST['remail'])){echo $_POST['remail'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="name"><b>Vārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Name" name="rname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rname'])){echo $_POST['rname'];}?>" required>
+                <input type="text" class="form-control" placeholder="Ievadiet vārdu" name="rname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rname'])){echo $_POST['rname'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="surname"><b>Uzvārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Surname" name="rsurname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rsurname'])){echo $_POST['rsurname'];}?>" required>
+                <input type="text" class="form-control" placeholder="Ievadiet uzvārdu" name="rsurname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rsurname'])){echo $_POST['rsurname'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="psw"><b>Parole</b></label>
-                <input class="form-control" type="password" placeholder="Enter Password" name="rpsw" value="<?php if(isset($_POST['rpsw'])){echo $_POST['rpsw'];}?>" required>
+                <input class="form-control" type="password" placeholder="Ievadiet paroli" name="rpsw" value="<?php if(isset($_POST['rpsw'])){echo $_POST['rpsw'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="psw"><b>Atkārtota parole</b></label>
-                <input class="form-control" type="password" placeholder="Enter Password Again" name="rpsw1" value="<?php if(isset($_POST['rpsw1'])){echo $_POST['rpsw1'];}?>" required>
+                <input class="form-control" type="password" placeholder="Ievadiet atkārtotu paroli" name="rpsw1" value="<?php if(isset($_POST['rpsw1'])){echo $_POST['rpsw1'];}?>" required>
             </div>
             <div class="form-group">
                 <button class="btn btn-success" type="submit" name="register">Reģistrēties</button>
@@ -76,7 +76,7 @@ if(isset($_POST['login'])){
         if($isAdmin == false){
             header("location:index.php");
         }else{
-            header("location:admin.php");
+            header("location:users.php");
         }
     }else{
         $errors->falseLogin();
