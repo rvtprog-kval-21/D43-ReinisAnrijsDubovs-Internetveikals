@@ -147,15 +147,15 @@ include "components/head.inc.php";
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="name"><b>Vārds</b></label>
-                                    <input type="text" class="form-control" name="name" value="" required>
+                                    <input type="text" class="form-control" name="name" pattern="[A-Za-z]{1,30}" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="surname"><b>Uzvārds</b></label>
-                                    <input type="text" class="form-control" name="surname" value="" required>
+                                    <input type="text" class="form-control" name="surname" pattern="[A-Za-z]{1,30}" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="phone"><b>Telefona numurs</b></label>
-                                    <input class="form-control" type="text" name="phone" value="" required>
+                                    <input class="form-control" type="text" name="phone" pattern="[0-9]{8}" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="date"><b>Datums</b></label>

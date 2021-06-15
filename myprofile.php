@@ -72,7 +72,7 @@ if(isset($_GET['deletereservation'])){
                         }
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changedate" data-bs-whatever="'.$usersReservations[$x].'">Mainīt datumu</button></td>';
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changetime" data-bs-whatever="'.$usersReservations[$x].'">Mainīt Laiku</button></td>';
-                        echo '<td><a href="reinis/myprofile.php?deletereservation='.$usersReservations[$x].'">Atcelt</a></td>';
+                        echo '<td><button class="btn btn-danger"><a class="text-white text-decoration-none" href="reinis/myprofile.php?deletereservation='.$usersReservations[$x].'">Atcelt</a></td>';
                         echo "</tr>";
                     }
                     ?>

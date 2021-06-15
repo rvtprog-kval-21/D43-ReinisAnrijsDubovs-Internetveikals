@@ -42,15 +42,15 @@ include "components/head.inc.php";
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="name"><b>Vārds</b></label>
-                        <input type="text" class="form-control" name="name" value="" required>
+                        <input type="text" class="form-control" name="name" pattern="[A-Za-z]{1,30}" values="" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="surname"><b>Uzvārds</b></label>
-                        <input type="text" class="form-control" name="surname" value="" required>
+                        <input type="text" class="form-control" name="surname" pattern="[A-Za-z]{1,30}" values="" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="phone"><b>Telefona numurs</b></label>
-                        <input class="form-control" type="text" name="phone" value="" required>
+                        <input class="form-control" type="text" pattern="[0-9]{8}" name="phone"values="" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="date"><b>Datums</b></label>
@@ -93,4 +93,3 @@ if(isset($_POST['reserve'])){
 }
 
 ?>
-

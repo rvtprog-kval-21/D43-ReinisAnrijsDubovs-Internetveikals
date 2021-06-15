@@ -215,6 +215,7 @@ include "components/head.inc.php";
 if(isset($_POST["add_address"])) {
     if($service->addWorkshop($_POST["address"])){
         $errors->workshopAdded();
+        echo '<script>window.location.href="/reinis/addWorkShop.php"</script>';
     }else{
         $errors->tryAgain();
     }

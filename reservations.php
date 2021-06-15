@@ -157,7 +157,7 @@ include "components/head.inc.php";
                         }
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changedate" data-bs-whatever="'.$reservations[$x].'">Mainīt datumu</button></td>';
                         echo '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changetime" data-bs-whatever="'.$reservations[$x].'">Mainīt Laiku</button></td>';
-                        echo '<td><a href="reinis/reservations.php?deletereservation='.$reservations[$x].'">Atcelt</a></td>';
+                        echo '<td><button class="btn btn-danger"><a class="text-white text-decoration-none"<a href="reinis/reservations.php?deletereservation='.$reservations[$x].'">Atcelt</a></td>';
                         echo "</tr>";
                     }
                     ?>

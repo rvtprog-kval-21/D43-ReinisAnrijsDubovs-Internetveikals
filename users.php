@@ -103,6 +103,12 @@ include "components/head.inc.php";
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="reinis/addReservation.php">
+                                <span data-feather="file"></span>
+                                Pievienot rezervāciju
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="reinis/addProduct.php">
                                 <span data-feather="shopping-cart"></span>
                                 Pievienot produktu
@@ -187,21 +193,21 @@ include "components/head.inc.php";
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Set new password</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ievadiet jauno paroli</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST">
           <div class="mb-3">
             <input type="text" class="user-id d-none" >
-            <label for="newpass" class="col-form-label">New password</label>
+            <label for="newpass" class="col-form-label">Jaunā parole</label>
             <input class="form-control" id="newpass" />
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="change-pass"  data-bs-dismiss="modal" class="btn btn-primary">Change password</button>
+        <button type="button" id="change-pass"  data-bs-dismiss="modal" class="btn btn-primary">Mainīt paroli</button>
       </div>
     </div>
   </div>

@@ -136,7 +136,7 @@ include "components/head.inc.php";
                     <form method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="form-label" for="product_category_name"><b>Produkta kategorijas nosaukums</b></label>
-                            <input class="form-control" type="text" name="product_category_name" value="" required>
+                            <input class="form-control" type="text" name="product_category_name" pattern="[A-Za-z]{1,30}" value="" required>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success" type="submit" name="add_product_category">Pievienot kategorju</button>
@@ -214,6 +214,7 @@ include "components/head.inc.php";
 if(isset($_POST["add_product_category"])) {
     if($service->addProductCategory($_POST["product_category_name"])){
         $errors->productCategoryAdded();
+        echo '<script>window.location.href="/reinis/addCategory.php"</script>';
     }else{
         $errors->tryAgain();
     }
@@ -241,26 +242,26 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 $(document).ready(function(){
 
-$('#change-category').click(function(){
-  
-  var id = $('.category-id').val();
-  var newaddress = $('#newCategory').val();
-  $.ajax({
-    type: 'POST',
-    url: 'reinis/addCategory.php',
-    dataType: "json",
-    data: {
-        id: id,
-        newCategory: newCategory,
-    },
-    complete: function(jqXHR) {
-       if(jqXHR.readyState === 4) {
-            alert("Kategorijas nosaukums tika veiksmīgi nomainīta!")
-            setInterval('refreshPage()', 200);
+    $('#change-category').click(function(){
+    
+    var id = $('.category-id').val();
+    var newCategory = $('#newCategory').val();
+    $.ajax({
+        type: 'POST',
+        url: 'reinis/addCategory.php',
+        dataType: "json",
+        data: {
+            id: id,
+            newCategory: newCategory,
+        },
+        complete: function(jqXHR) {
+        if(jqXHR.readyState === 4) {
+                alert("Kategorijas nosaukums tika veiksmīgi nomainīta!")
+                setInterval('refreshPage()', 200);
+            }   
         }   
-    }   
- });
-});
+    });
+    });
 });
 
 function refreshPage() {

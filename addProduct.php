@@ -140,11 +140,11 @@ include "components/head.inc.php";
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="product_description"><b>Produkta apraksts</b></label>
-                                <textarea class="form-control" name="product_description" required></textarea>
+                                <textarea class="form-control" name="product_description"></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="product_brand"><b>Produkta brends</b></label>
-                                <input class="form-control" type="text" name="product_brand" value="" required>
+                                <input class="form-control" type="text" name="product_brand" value="">
                             </div>
                             <div class="form-group fileToUplode">
                                 <label class="form-label" for="product_name"><b>Bilde</b></label>

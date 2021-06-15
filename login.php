@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="reinis/scss/custom.scss">
 </head>
 <div class="login" aria-labelledby="login">
-  
+    <div class="form-group float-end">
+        <button class="btn btn-success btn-back" onclick="window.location.href='/reinis/index.php'">Atpakaļ</button>
+    </div>
     <form class="login-content animate m-5" method="post">
         <div class="log-container">
             <h2>Ienākt</h2>
@@ -30,22 +32,22 @@
     </form>
     <form class="register-content animate m-5" method="post">
         <div class="reg-container">
-            <h2>Reģistrēšanāš</h2>
+            <h2>Reģistrēšanās</h2>
             <div class="form-group">
                 <label class="form-label" for="runame"><b>Lietotāj vārds</b></label>
                 <input type="text" class="form-control" placeholder="Enter Username" name="runame" value="<?php if(isset($_POST['runame'])){echo $_POST['runame'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="email"><b>E-pasts</b></label>
-                <input type="email" class="form-control" placeholder="Enter E-Mail" name="remail" value="<?php if(isset($_POST['remail'])){echo $_POST['remail'];}?>" required>
+                <input type="email" class="form-control" placeholder="Enter E-Mail" name="remail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php if(isset($_POST['remail'])){echo $_POST['remail'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="name"><b>Vārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Name" name="rname" value="<?php if(isset($_POST['rname'])){echo $_POST['rname'];}?>" required>
+                <input type="text" class="form-control" placeholder="Enter Name" name="rname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rname'])){echo $_POST['rname'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="surname"><b>Uzvārds</b></label>
-                <input type="text" class="form-control" placeholder="Enter Surname" name="rsurname" value="<?php if(isset($_POST['rsurname'])){echo $_POST['rsurname'];}?>" required>
+                <input type="text" class="form-control" placeholder="Enter Surname" name="rsurname" pattern="[A-Za-z]{1,30}" value="<?php if(isset($_POST['rsurname'])){echo $_POST['rsurname'];}?>" required>
             </div>
             <div class="form-group">
                 <label class="form-label" for="psw"><b>Parole</b></label>
